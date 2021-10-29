@@ -1,0 +1,10 @@
+h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+body {
+    background-image: linear-gradient(to bottom right, #b4d4db, #78a2cc);
+    height: 100vh;
+}
