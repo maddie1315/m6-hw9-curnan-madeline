@@ -22,31 +22,34 @@ formEl.onsubmit = function(e) {
 
 function renderLocation(locationObj) {
     // locationEl.innerHTML = ""
-    if (locationObj.Response === 'False') {
-        locationEl.textContent = "Location not Found"
-        return
-    }
+    //if (locationObj.Response === 'False') {
+        //locationEl.textContent = "Location not Found"
+        //return
+    //}
+
+    console.log(locationObj.name)
 
     // city name
-    var cityEl = document.createElement('h2')
-    cityEl.textContent = locationObj.name
-    // locationEl.appendChild(cityEl)
+    var city = document.createElement('h2')
+    city.textContent = locationObj.name
+    locationEl.appendChild(city)
 
     // weather icon
-    var iconEl = document.createElement('img')
+    var icon = document.createElement('img')
     
     // current weather
-    var weatherEl = document.createElement('h4')
-    weatherEl.textContent = locationObj.weather[0].description
-    // locationEl.appendChild(weatherEl)
+    var weather = document.createElement('h4')
+    weather.textContent = locationObj.weather[0].description
+    locationEl.appendChild(weather)
     
     // current temp
-    var tempEl = document.createElement('p')
-    tempEl.textContent = "Current Temperature: " + locationObj.temp
-    // locationEl.appendChild(tempEl)
+    var temp = document.createElement('p')
+    temp.textContent = "Current Temperature: " + locationObj.main.temp
+    locationEl.appendChild(temp)
 
     // feels like temp
-    var feelsLikeEl = document.createElement('p')
-    feelsLikeEl.textContent = "Feels Like: " + locationObj.main.feels_like
+    var feelsLike = document.createElement('p')
+    feelsLike.textContent = "Feels Like: " + locationObj.main.feels_like
+    locationEl.appendChild(feelsLike)
 
 }
