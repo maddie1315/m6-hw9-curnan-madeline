@@ -21,22 +21,25 @@ formEl.onsubmit = function(e) {
 }
 
 function renderLocation(locationObj) {
-    // locationEl.innerHTML = ""
-    //if (locationObj.Response === 'False') {
-        //locationEl.textContent = "Location not Found"
-        //return
-    //}
+    locationEl.innerHTML = ""
+    if (locationObj.message === 'city not found') {
+        locationEl.textContent = "Location not Found"
+        return
+    }
 
     console.log(locationObj.name)
 
     // city name
     var city = document.createElement('h2')
-    city.textContent = locationObj.name
+    city.textContent = locationObj.name + ", " + locationObj.sys.country
     locationEl.appendChild(city)
 
     // weather icon
     var icon = document.createElement('img')
-    
+    icon.src = 'https://openweathermap.org/img/wn/' + locationObj.weather[0].icon + '@2x.png'
+    icon.alt = locationObj.weather[0].description
+    locationEl.appendChild(icon)
+
     // current weather
     var weather = document.createElement('h4')
     weather.textContent = locationObj.weather[0].description
